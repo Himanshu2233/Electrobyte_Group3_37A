@@ -4,6 +4,10 @@
  */
 package view;
 import java.awt.event.ActionListener;
+import controller.LoginController;
+import javax.swing.JOptionPane;
+import model.User;
+
 
 /**
  *
@@ -234,7 +238,11 @@ public class Signup extends javax.swing.JFrame {
     }//GEN-LAST:event_S_SignupBtnActionPerformed
 
     private void S_LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_LoginBtnActionPerformed
-        // TODO add your handling code here:
+        Login login = new Login();
+        LoginController logincontroller = new LoginController(log);
+        logincontroller.open();
+        login.setVisible(true);
+        this.dispose(); // Close the signup window
     }//GEN-LAST:event_S_LoginBtnActionPerformed
 
     /**
