@@ -46,6 +46,7 @@ public class SignupController {
 
                 }else {
                     userDao.signUp(user);
+                    JOptionPane.showMessageDialog(userView, "Signup successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 }
             }catch (Exception ex) {
                 JOptionPane.showMessageDialog(userView, "Error: " + ex.getMessage());

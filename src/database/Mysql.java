@@ -13,8 +13,8 @@ public class Mysql implements Database {
     public Connection openConnection() {
         try {
         String username = "root";
-        String password = "#pq2c2urll";
-        String database = "electrobyte";
+        String password = "sphinxx@!123";
+        String database = "Electrobyte";
         Connection connection;
         connection = DriverManager.getConnection(
         "jdbc:mysql://localhost:3306/" + database,username,password

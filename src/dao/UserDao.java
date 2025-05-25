@@ -27,6 +27,10 @@ public class UserDao {
     public void signUp(User user) {
         // Code to save user to the database
         Connection conn = mysql.openConnection();
+        if (conn == null) {
+            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, "Failed to establish database connection.");
+            return;
+        }
         String sql = "INSERT INTO users (username,email, password) VALUES (?, ?, ?)";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, user.getUsername());

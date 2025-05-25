@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/sahki/OneDrive/Documents/NetBeansProjects/Electrobyte/src/view/Login.java</file>
+            <file>file:/C:/Users/sahki/OneDrive/Documents/NetBeansProjects/Electrobyte/src/model/User.java</file>
+            <file>file:/C:/Users/sahki/OneDrive/Documents/NetBeansProjects/Electrobyte/src/electrobyte/Electrobyte.java</file>
+            <file>file:/C:/Users/sahki/OneDrive/Documents/NetBeansProjects/Electrobyte/src/database/Mysql.java</file>
+            <file>file:/C:/Users/sahki/OneDrive/Documents/NetBeansProjects/Electrobyte/src/database/Database.java</file>
+            <file>file:/C:/Users/sahki/OneDrive/Documents/NetBeansProjects/Electrobyte/src/dao/LoginDao.java</file>
+            <file>file:/C:/Users/sahki/OneDrive/Documents/NetBeansProjects/Electrobyte/src/controller/LoginController.java</file>
+            <file>file:/C:/Users/sahki/OneDrive/Documents/NetBeansProjects/Electrobyte/src/dao/UserDao.java</file>
+            <file>file:/C:/Users/sahki/OneDrive/Documents/NetBeansProjects/Electrobyte/src/view/Welcome.java</file>
+            <file>file:/C:/Users/sahki/OneDrive/Documents/NetBeansProjects/Electrobyte/src/view/Signup.java</file>
+        </group>
     </open-files>
 </project-private>
