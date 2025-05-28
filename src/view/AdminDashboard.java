@@ -28,18 +28,15 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         SearchBar = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        ShoppingCart = new javax.swing.JLabel();
-        ProfileIcon = new javax.swing.JLabel();
         NavBar = new javax.swing.JPanel();
         Electrobyte = new javax.swing.JLabel();
         Logo = new javax.swing.JLabel();
-        Orders = new javax.swing.JTextField();
-        Products = new javax.swing.JTextField();
-        Dashboard = new javax.swing.JTextField();
-        Reviews = new javax.swing.JTextField();
-        Users = new javax.swing.JTextField();
         LogoutBtn = new javax.swing.JButton();
+        usersBTN = new javax.swing.JButton();
+        dashboardBTN = new javax.swing.JButton();
+        ordersBTN = new javax.swing.JButton();
+        productsBTN = new javax.swing.JButton();
+        reviewBTN = new javax.swing.JButton();
         TodaysOrders = new javax.swing.JPanel();
         TodaysNoOfOrders = new javax.swing.JTextField();
         TotalSales = new javax.swing.JPanel();
@@ -53,105 +50,63 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         SearchBar.setText("Search");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/resized search.png"))); // NOI18N
-
-        ShoppingCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-shopping-cart-30.png"))); // NOI18N
-        ShoppingCart.setText("jLabel2");
-
-        ProfileIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-male-user-24.png"))); // NOI18N
-
         NavBar.setBackground(new java.awt.Color(153, 153, 153));
 
         Electrobyte.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Electrobyte.setText("Electrobyte");
 
+        Logo.setBackground(new java.awt.Color(0, 0, 0));
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Electrobyte (Custom) (Custom) (1).png"))); // NOI18N
-
-        Orders.setBackground(new java.awt.Color(153, 153, 153));
-        Orders.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        Orders.setText("            Orders");
-        Orders.setAlignmentX(1.0F);
-        Orders.setAlignmentY(1.0F);
-        Orders.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OrdersActionPerformed(evt);
-            }
-        });
-
-        Products.setBackground(new java.awt.Color(153, 153, 153));
-        Products.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        Products.setText("           Products");
-        Products.setAlignmentX(1.0F);
-        Products.setAlignmentY(1.0F);
-        Products.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProductsActionPerformed(evt);
-            }
-        });
-
-        Dashboard.setBackground(new java.awt.Color(204, 204, 204));
-        Dashboard.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        Dashboard.setText("         Dashboard");
-        Dashboard.setAlignmentX(1.0F);
-        Dashboard.setAlignmentY(1.0F);
-        Dashboard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DashboardActionPerformed(evt);
-            }
-        });
-
-        Reviews.setBackground(new java.awt.Color(153, 153, 153));
-        Reviews.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        Reviews.setText("           Reviews");
-        Reviews.setAlignmentX(1.0F);
-        Reviews.setAlignmentY(1.0F);
-        Reviews.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReviewsActionPerformed(evt);
-            }
-        });
-
-        Users.setBackground(new java.awt.Color(153, 153, 153));
-        Users.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        Users.setText("             Users");
-        Users.setAlignmentX(1.0F);
-        Users.setAlignmentY(1.0F);
-        Users.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsersActionPerformed(evt);
-            }
-        });
 
         LogoutBtn.setBackground(new java.awt.Color(255, 51, 51));
         LogoutBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LogoutBtn.setForeground(new java.awt.Color(255, 255, 255));
         LogoutBtn.setText("Logout");
-        LogoutBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LogoutBtnActionPerformed(evt);
-            }
-        });
+
+        usersBTN.setBackground(new java.awt.Color(153, 153, 153));
+        usersBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        usersBTN.setText("Users");
+        usersBTN.setBorder(null);
+
+        dashboardBTN.setBackground(new java.awt.Color(153, 153, 153));
+        dashboardBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dashboardBTN.setText("Dashboard");
+        dashboardBTN.setBorder(null);
+
+        ordersBTN.setBackground(new java.awt.Color(153, 153, 153));
+        ordersBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ordersBTN.setText("Orders");
+        ordersBTN.setBorder(null);
+
+        productsBTN.setBackground(new java.awt.Color(153, 153, 153));
+        productsBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        productsBTN.setText("Products");
+        productsBTN.setBorder(null);
+
+        reviewBTN.setBackground(new java.awt.Color(153, 153, 153));
+        reviewBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        reviewBTN.setText("Reviews");
+        reviewBTN.setBorder(null);
 
         javax.swing.GroupLayout NavBarLayout = new javax.swing.GroupLayout(NavBar);
         NavBar.setLayout(NavBarLayout);
         NavBarLayout.setHorizontalGroup(
             NavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Orders, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(Products)
-            .addComponent(Reviews, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NavBarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LogoutBtn)
+                .addGap(34, 34, 34))
+            .addComponent(usersBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(dashboardBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ordersBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(productsBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(NavBarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Electrobyte)
                 .addContainerGap(18, Short.MAX_VALUE))
-            .addComponent(Users, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NavBarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LogoutBtn)
-                .addGap(34, 34, 34))
-            .addGroup(NavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
+            .addComponent(reviewBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         NavBarLayout.setVerticalGroup(
             NavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,22 +116,19 @@ public class AdminDashboard extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(Electrobyte))
                     .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(112, 112, 112)
-                .addComponent(Orders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(Products, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(Reviews, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(Users, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(58, 58, 58)
+                .addComponent(dashboardBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(usersBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(ordersBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(productsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(reviewBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                 .addComponent(LogoutBtn)
                 .addGap(41, 41, 41))
-            .addGroup(NavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(NavBarLayout.createSequentialGroup()
-                    .addGap(98, 98, 98)
-                    .addComponent(Dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(414, Short.MAX_VALUE)))
         );
 
         TodaysOrders.setBackground(new java.awt.Color(204, 204, 255));
@@ -184,11 +136,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         TodaysNoOfOrders.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         TodaysNoOfOrders.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TodaysNoOfOrders.setText("Today's No. of Orders");
-        TodaysNoOfOrders.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TodaysNoOfOrdersActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout TodaysOrdersLayout = new javax.swing.GroupLayout(TodaysOrders);
         TodaysOrders.setLayout(TodaysOrdersLayout);
@@ -212,11 +159,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         totalSales.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         totalSales.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         totalSales.setText("Total Sales $");
-        totalSales.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalSalesActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout TotalSalesLayout = new javax.swing.GroupLayout(TotalSales);
         TotalSales.setLayout(TotalSalesLayout);
@@ -240,11 +182,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         totalRevenue.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         totalRevenue.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         totalRevenue.setText("Total Revenue $");
-        totalRevenue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalRevenueActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout TotalRevenueLayout = new javax.swing.GroupLayout(TotalRevenue);
         TotalRevenue.setLayout(TotalRevenueLayout);
@@ -268,11 +205,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         lowStocks.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lowStocks.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         lowStocks.setText("Low Stocks");
-        lowStocks.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lowStocksActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout TotalSales1Layout = new javax.swing.GroupLayout(TotalSales1);
         TotalSales1.setLayout(TotalSales1Layout);
@@ -288,7 +220,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             .addGroup(TotalSales1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lowStocks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -309,15 +241,8 @@ public class AdminDashboard extends javax.swing.JFrame {
                                 .addComponent(TodaysOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(49, 49, 49)
                                 .addComponent(TotalSales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(ShoppingCart, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(67, 67, 67)
-                                .addComponent(ProfileIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(TotalRevenue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(7, 7, 7)
+                        .addComponent(TotalRevenue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addComponent(TotalSales1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -331,19 +256,9 @@ public class AdminDashboard extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(NavBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(SearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(64, 64, 64))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(ShoppingCart, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ProfileIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(56, 56, 56)))
+                        .addGap(16, 16, 16)
+                        .addComponent(SearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(TodaysOrders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(TotalSales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -369,46 +284,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void OrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrdersActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_OrdersActionPerformed
-
-    private void ProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ProductsActionPerformed
-
-    private void DashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashboardActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DashboardActionPerformed
-
-    private void ReviewsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReviewsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReviewsActionPerformed
-
-    private void UsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsersActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsersActionPerformed
-
-    private void LogoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LogoutBtnActionPerformed
-
-    private void TodaysNoOfOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodaysNoOfOrdersActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TodaysNoOfOrdersActionPerformed
-
-    private void totalSalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalSalesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_totalSalesActionPerformed
-
-    private void totalRevenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalRevenueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_totalRevenueActionPerformed
-
-    private void lowStocksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lowStocksActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lowStocksActionPerformed
 
     /**
      * @param args the command line arguments
@@ -446,27 +321,24 @@ public class AdminDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Dashboard;
     private javax.swing.JLabel Electrobyte;
     private javax.swing.JLabel Logo;
     private javax.swing.JButton LogoutBtn;
     private javax.swing.JPanel NavBar;
-    private javax.swing.JTextField Orders;
-    private javax.swing.JTextField Products;
-    private javax.swing.JLabel ProfileIcon;
-    private javax.swing.JTextField Reviews;
     private javax.swing.JTextField SearchBar;
-    private javax.swing.JLabel ShoppingCart;
     private javax.swing.JTextField TodaysNoOfOrders;
     private javax.swing.JPanel TodaysOrders;
     private javax.swing.JPanel TotalRevenue;
     private javax.swing.JPanel TotalSales;
     private javax.swing.JPanel TotalSales1;
-    private javax.swing.JTextField Users;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton dashboardBTN;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lowStocks;
+    private javax.swing.JButton ordersBTN;
+    private javax.swing.JButton productsBTN;
+    private javax.swing.JButton reviewBTN;
     private javax.swing.JTextField totalRevenue;
     private javax.swing.JTextField totalSales;
+    private javax.swing.JButton usersBTN;
     // End of variables declaration//GEN-END:variables
 }
