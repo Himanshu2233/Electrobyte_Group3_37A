@@ -8,12 +8,12 @@ package view;
  *
  * @author Hurri
  */
-public class AdminDashboard extends javax.swing.JFrame {
+public class NewJFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form AdminDashboard
+     * Creates new form NewJFrame
      */
-    public AdminDashboard() {
+    public NewJFrame() {
         initComponents();
     }
 
@@ -26,8 +26,6 @@ public class AdminDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        SearchBar = new javax.swing.JTextField();
         NavBar = new javax.swing.JPanel();
         Electrobyte = new javax.swing.JLabel();
         Logo = new javax.swing.JLabel();
@@ -37,22 +35,21 @@ public class AdminDashboard extends javax.swing.JFrame {
         ordersBTN = new javax.swing.JButton();
         productsBTN = new javax.swing.JButton();
         reviewBTN = new javax.swing.JButton();
-        TodaysOrders = new javax.swing.JPanel();
-
-        todaysOrders = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         TotalSales = new javax.swing.JPanel();
+        totalSales = new javax.swing.JLabel();
         TotalRevenue = new javax.swing.JPanel();
-        totalRevenue = new javax.swing.JTextField();
+        totalRevenue = new javax.swing.JLabel();
         TotalSales1 = new javax.swing.JPanel();
-        lowStocks = new javax.swing.JTextField();
+        lowStock = new javax.swing.JLabel();
+        TodaysOrders = new javax.swing.JPanel();
+        todaysOrders = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        SearchBar.setText("Search");
-
-
         NavBar.setBackground(new java.awt.Color(153, 153, 153));
 
+        Electrobyte.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Electrobyte.setText("Electrobyte");
 
         Logo.setBackground(new java.awt.Color(0, 0, 0));
@@ -67,26 +64,51 @@ public class AdminDashboard extends javax.swing.JFrame {
         usersBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         usersBTN.setText("Users");
         usersBTN.setBorder(null);
+        usersBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usersBTNActionPerformed(evt);
+            }
+        });
 
-        dashboardBTN.setBackground(new java.awt.Color(153, 153, 153));
+        dashboardBTN.setBackground(new java.awt.Color(204, 204, 204));
         dashboardBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dashboardBTN.setText("Dashboard");
         dashboardBTN.setBorder(null);
+        dashboardBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dashboardBTNActionPerformed(evt);
+            }
+        });
 
         ordersBTN.setBackground(new java.awt.Color(153, 153, 153));
         ordersBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ordersBTN.setText("Orders");
         ordersBTN.setBorder(null);
+        ordersBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ordersBTNActionPerformed(evt);
+            }
+        });
 
         productsBTN.setBackground(new java.awt.Color(153, 153, 153));
         productsBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         productsBTN.setText("Products");
         productsBTN.setBorder(null);
+        productsBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productsBTNActionPerformed(evt);
+            }
+        });
 
         reviewBTN.setBackground(new java.awt.Color(153, 153, 153));
         reviewBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         reviewBTN.setText("Reviews");
         reviewBTN.setBorder(null);
+        reviewBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reviewBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout NavBarLayout = new javax.swing.GroupLayout(NavBar);
         NavBar.setLayout(NavBarLayout);
@@ -126,38 +148,18 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addComponent(productsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(reviewBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addComponent(LogoutBtn)
                 .addGap(41, 41, 41))
         );
 
-        TodaysOrders.setBackground(new java.awt.Color(204, 204, 255));
-
-        TodaysNoOfOrders.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        TodaysNoOfOrders.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TodaysNoOfOrders.setText("Today's No. of Orders");
-
-        javax.swing.GroupLayout TodaysOrdersLayout = new javax.swing.GroupLayout(TodaysOrders);
-        TodaysOrders.setLayout(TodaysOrdersLayout);
-        TodaysOrdersLayout.setHorizontalGroup(
-            TodaysOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TodaysOrdersLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TodaysNoOfOrders, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        TodaysOrdersLayout.setVerticalGroup(
-            TodaysOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TodaysOrdersLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TodaysNoOfOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setText("Dashboard");
 
         TotalSales.setBackground(new java.awt.Color(204, 204, 255));
+        TotalSales.setPreferredSize(new java.awt.Dimension(215, 167));
 
         totalSales.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        totalSales.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         totalSales.setText("Total Sales $");
 
         javax.swing.GroupLayout TotalSalesLayout = new javax.swing.GroupLayout(TotalSales);
@@ -165,22 +167,22 @@ public class AdminDashboard extends javax.swing.JFrame {
         TotalSalesLayout.setHorizontalGroup(
             TotalSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TotalSalesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(totalSales, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(94, Short.MAX_VALUE)
+                .addComponent(totalSales)
+                .addGap(86, 86, 86))
         );
         TotalSalesLayout.setVerticalGroup(
             TotalSalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TotalSalesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(totalSales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addComponent(totalSales)
+                .addContainerGap(208, Short.MAX_VALUE))
         );
 
         TotalRevenue.setBackground(new java.awt.Color(204, 204, 255));
+        TotalRevenue.setPreferredSize(new java.awt.Dimension(215, 167));
 
         totalRevenue.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        totalRevenue.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         totalRevenue.setText("Total Revenue $");
 
         javax.swing.GroupLayout TotalRevenueLayout = new javax.swing.GroupLayout(TotalRevenue);
@@ -188,102 +190,135 @@ public class AdminDashboard extends javax.swing.JFrame {
         TotalRevenueLayout.setHorizontalGroup(
             TotalRevenueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TotalRevenueLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(totalRevenue, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(83, Short.MAX_VALUE)
+                .addComponent(totalRevenue)
+                .addGap(77, 77, 77))
         );
         TotalRevenueLayout.setVerticalGroup(
             TotalRevenueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TotalRevenueLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(totalRevenue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addComponent(totalRevenue)
+                .addContainerGap(472, Short.MAX_VALUE))
         );
 
         TotalSales1.setBackground(new java.awt.Color(204, 204, 255));
 
-        lowStocks.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lowStocks.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        lowStocks.setText("Low Stocks");
+        lowStock.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lowStock.setText("LOW STOCK");
 
         javax.swing.GroupLayout TotalSales1Layout = new javax.swing.GroupLayout(TotalSales1);
         TotalSales1.setLayout(TotalSales1Layout);
         TotalSales1Layout.setHorizontalGroup(
             TotalSales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TotalSales1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lowStocks, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(TotalSales1Layout.createSequentialGroup()
+                .addGap(220, 220, 220)
+                .addComponent(lowStock)
+                .addContainerGap(230, Short.MAX_VALUE))
         );
         TotalSales1Layout.setVerticalGroup(
             TotalSales1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TotalSales1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lowStocks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lowStock)
+                .addContainerGap(224, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(NavBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(SearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addComponent(TodaysOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(49, 49, 49)
-                                .addComponent(TotalSales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(7, 7, 7)
-                        .addComponent(TotalRevenue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(TotalSales1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(82, Short.MAX_VALUE))
+        TodaysOrders.setBackground(new java.awt.Color(204, 204, 255));
+        TodaysOrders.setPreferredSize(new java.awt.Dimension(215, 167));
+
+        todaysOrders.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        todaysOrders.setText("Today's No. of Orders");
+
+        javax.swing.GroupLayout TodaysOrdersLayout = new javax.swing.GroupLayout(TodaysOrders);
+        TodaysOrders.setLayout(TodaysOrdersLayout);
+        TodaysOrdersLayout.setHorizontalGroup(
+            TodaysOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TodaysOrdersLayout.createSequentialGroup()
+                .addContainerGap(74, Short.MAX_VALUE)
+                .addComponent(todaysOrders)
+                .addGap(54, 54, 54))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(NavBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(SearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TodaysOrders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TotalSales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TotalRevenue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(72, 72, 72)
-                        .addComponent(TotalSales1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(44, 44, 44)))
-                .addContainerGap())
+        TodaysOrdersLayout.setVerticalGroup(
+            TodaysOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TodaysOrdersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(todaysOrders)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(NavBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(589, 589, 589))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(TodaysOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(TotalSales, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TotalSales1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(TotalRevenue, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(NavBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(TodaysOrders, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                                    .addComponent(TotalSales, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(TotalSales1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TotalRevenue, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void usersBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersBTNActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_usersBTNActionPerformed
+
+    private void dashboardBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBTNActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_dashboardBTNActionPerformed
+
+    private void ordersBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordersBTNActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_ordersBTNActionPerformed
+
+    private void productsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productsBTNActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_productsBTNActionPerformed
+
+    private void reviewBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviewBTNActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(4);
+    }//GEN-LAST:event_reviewBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,20 +337,20 @@ public class AdminDashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminDashboard().setVisible(true);
+                new NewJFrame().setVisible(true);
             }
         });
     }
@@ -325,20 +360,19 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel Logo;
     private javax.swing.JButton LogoutBtn;
     private javax.swing.JPanel NavBar;
-    private javax.swing.JTextField SearchBar;
-    private javax.swing.JTextField TodaysNoOfOrders;
     private javax.swing.JPanel TodaysOrders;
     private javax.swing.JPanel TotalRevenue;
     private javax.swing.JPanel TotalSales;
     private javax.swing.JPanel TotalSales1;
     private javax.swing.JButton dashboardBTN;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField lowStocks;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lowStock;
     private javax.swing.JButton ordersBTN;
     private javax.swing.JButton productsBTN;
     private javax.swing.JButton reviewBTN;
-    private javax.swing.JTextField totalRevenue;
-    private javax.swing.JTextField totalSales;
+    private javax.swing.JLabel todaysOrders;
+    private javax.swing.JLabel totalRevenue;
+    private javax.swing.JLabel totalSales;
     private javax.swing.JButton usersBTN;
     // End of variables declaration//GEN-END:variables
 }
