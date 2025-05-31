@@ -5,6 +5,7 @@
 package view;
 import java.awt.event.ActionListener;
 import controller.LoginController;
+import dao.UserDao;
 import javax.swing.JOptionPane;
 import model.User;
 
@@ -14,6 +15,7 @@ import model.User;
  * @author NITRO V 15
  */
 public class Signup extends javax.swing.JFrame {
+    UserDao userDao = new UserDao();
 
     /**
      * Creates new form SignUp
@@ -38,7 +40,6 @@ public class Signup extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         S_username = new javax.swing.JTextField();
         S_email = new javax.swing.JTextField();
         S_SignupBtn = new javax.swing.JButton();
@@ -48,7 +49,9 @@ public class Signup extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         S_passwordF1 = new javax.swing.JPasswordField();
-        S_passwordF2 = new javax.swing.JPasswordField();
+        Security_question = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        S_SecurityAnswer = new javax.swing.JTextField();
 
         jLabel1.setText("jLabel1");
 
@@ -67,8 +70,6 @@ public class Signup extends javax.swing.JFrame {
         jLabel4.setText("Email");
 
         jLabel5.setText("Password");
-
-        jLabel6.setText("Repeat Password");
 
         S_username.setBackground(new java.awt.Color(217, 217, 217));
         S_username.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +116,21 @@ public class Signup extends javax.swing.JFrame {
 
         S_passwordF1.setBackground(new java.awt.Color(217, 217, 217));
 
-        S_passwordF2.setBackground(new java.awt.Color(217, 217, 217));
+        Security_question.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "What's your Favrouite Petname?", "What's Your Nickname?", "What's Your LuckyNumber(In words)?" }));
+        Security_question.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Security_questionActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Security Question");
+
+        S_SecurityAnswer.setBackground(new java.awt.Color(217, 217, 217));
+        S_SecurityAnswer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S_SecurityAnswerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -123,21 +138,15 @@ public class Signup extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(145, 145, 145))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(145, 145, 145))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(S_SignupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(105, 105, 105))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel7)
-                                .addGap(24, 24, 24))
-                            .addComponent(S_SignupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(S_LoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -146,7 +155,6 @@ public class Signup extends javax.swing.JFrame {
                             .addComponent(S_email, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -154,7 +162,16 @@ public class Signup extends javax.swing.JFrame {
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel8)))
                             .addComponent(S_passwordF1)
-                            .addComponent(S_passwordF2))))
+                            .addComponent(Security_question, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6)
+                            .addComponent(S_SecurityAnswer, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(S_LoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -184,14 +201,16 @@ public class Signup extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(S_passwordF2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Security_question, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(S_SecurityAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(S_SignupBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(S_LoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -208,7 +227,7 @@ public class Signup extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -234,16 +253,40 @@ public class Signup extends javax.swing.JFrame {
     }//GEN-LAST:event_S_emailActionPerformed
 
     private void S_SignupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_SignupBtnActionPerformed
-        // TODO add your handling code here:
+        // Retrieve user input
+//        String username = S_username.getText().trim();
+//        String email = S_email.getText().trim();
+//        String password = new String(S_passwordF1.getPassword());
+//        String confirmPassword = new String(S_passwordF2.getPassword());
+
+        // Validate input fields
+        
+
+        // Create a new user object
+//        User newUser = new User(username, email, password);
+
+        // Call a method to save the user (this would typically involve calling a DAO or service class)
+//        boolean isUserCreated = userDao.checkUser(newUser);
+
+        
     }//GEN-LAST:event_S_SignupBtnActionPerformed
 
     private void S_LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_LoginBtnActionPerformed
         Login login = new Login();
-        LoginController logincontroller = new LoginController(log);
+        LoginController logincontroller = new LoginController(login);
         logincontroller.open();
         login.setVisible(true);
+        login.setLocationRelativeTo(null); //bicha ma basne ho yeleeeeeee
         this.dispose(); // Close the signup window
     }//GEN-LAST:event_S_LoginBtnActionPerformed
+
+    private void S_SecurityAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_SecurityAnswerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_SecurityAnswerActionPerformed
+
+    private void Security_questionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Security_questionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Security_questionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,11 +326,12 @@ public class Signup extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton S_LoginBtn;
+    private javax.swing.JTextField S_SecurityAnswer;
     private javax.swing.JButton S_SignupBtn;
     private javax.swing.JTextField S_email;
     private javax.swing.JPasswordField S_passwordF1;
-    private javax.swing.JPasswordField S_passwordF2;
     private javax.swing.JTextField S_username;
+    private javax.swing.JComboBox<String> Security_question;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -315,4 +359,11 @@ public class Signup extends javax.swing.JFrame {
     public javax.swing.JTextField getUsernameField() {
         return S_username;
     }
+    public javax.swing.JTextField getSecurity_AnsField() {
+        return S_SecurityAnswer;
+    }
+    public javax.swing.JComboBox getSecurityQuestion(){
+        return Security_question;
+    }
+    
 }

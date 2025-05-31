@@ -18,12 +18,12 @@ public class Electrobyte {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Signup signup = new Signup();
-        SignupController signupController = new SignupController(signup);
-        signupController.open();
-        signup.setVisible(true);
-//          Welcome welcome = new Welcome();
-//            welcome.setVisible(true);
+        // Signup signup = new Signup();
+        // SignupController signupController = new SignupController(signup);
+        // signupController.open();
+        // signup.setVisible(true);
+          Welcome welcome = new Welcome();
+            welcome.setVisible(true);
     }
     
 }
