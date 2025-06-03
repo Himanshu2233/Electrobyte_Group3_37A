@@ -20,6 +20,7 @@ public class LoginController {
     private final Login login;
     private final AdminDashboard admindashboard = new AdminDashboard();
     private final HomePage homepage = new HomePage();
+    private final UserTable usertable = new UserTable();
     
 
     public LoginController(Login login) {
@@ -52,6 +53,7 @@ public class LoginController {
                 
                 if (username.equals("admin") && password.equals("root")){
                     admindashboard.setVisible(true);
+                    admindashboard.LogoutBtnActionPerformed(new LogoutBtnActionPerformed());
                     login.dispose();
                 }
                 else if (!isExist) {
@@ -61,6 +63,8 @@ public class LoginController {
                     // Proceed to dashboard or next screen here
                     homepage.setVisible(isExist);
                     login.dispose();
+//                    LoginController loginController = new LoginController(login);
+//                    loginController.open();
                     
                 }
             } catch (RuntimeException ex) {
@@ -68,4 +72,22 @@ public class LoginController {
             }
         }
     }
+    class LogoutBtnActionPerformed implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            admindashboard.dispose();
+            login.setVisible(true);
+            LoginController loginController = new LoginController(login);
+            loginController.open();
+        }
+    }
+//    class LogoutBtn2ActionPerformed implements ActionListener {
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//            usertable.dispose();
+//            login.setVisible(true);
+//            LoginController loginController = new LoginController(login);
+//            loginController.open();
+//        }
+//    }
 }
