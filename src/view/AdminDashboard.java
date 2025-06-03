@@ -4,6 +4,9 @@
  */
 package view;
 
+import controller.UserTableController;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Hurri
@@ -38,9 +41,9 @@ public class AdminDashboard extends javax.swing.JFrame {
         productsBTN = new javax.swing.JButton();
         reviewBTN = new javax.swing.JButton();
         TodaysOrders = new javax.swing.JPanel();
-
-        todaysOrders = new javax.swing.JLabel();
+        TodaysNoOfOrders = new javax.swing.JTextField();
         TotalSales = new javax.swing.JPanel();
+        totalSales = new javax.swing.JTextField();
         TotalRevenue = new javax.swing.JPanel();
         totalRevenue = new javax.swing.JTextField();
         TotalSales1 = new javax.swing.JPanel();
@@ -50,9 +53,9 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         SearchBar.setText("Search");
 
-
         NavBar.setBackground(new java.awt.Color(153, 153, 153));
 
+        Electrobyte.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Electrobyte.setText("Electrobyte");
 
         Logo.setBackground(new java.awt.Color(0, 0, 0));
@@ -62,11 +65,21 @@ public class AdminDashboard extends javax.swing.JFrame {
         LogoutBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LogoutBtn.setForeground(new java.awt.Color(255, 255, 255));
         LogoutBtn.setText("Logout");
+        LogoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutBtnActionPerformed(evt);
+            }
+        });
 
         usersBTN.setBackground(new java.awt.Color(153, 153, 153));
         usersBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         usersBTN.setText("Users");
         usersBTN.setBorder(null);
+        usersBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usersBTNActionPerformed(evt);
+            }
+        });
 
         dashboardBTN.setBackground(new java.awt.Color(153, 153, 153));
         dashboardBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -285,6 +298,18 @@ public class AdminDashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void LogoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LogoutBtnActionPerformed
+
+    private void usersBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersBTNActionPerformed
+        // TODO add your handling code here:
+        UserTable userTable = new UserTable();
+        UserTableController controller = new UserTableController(userTable);
+        controller.loadUsers();
+        userTable.setVisible(true);
+    }//GEN-LAST:event_usersBTNActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -310,6 +335,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -341,4 +367,8 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JTextField totalSales;
     private javax.swing.JButton usersBTN;
     // End of variables declaration//GEN-END:variables
+
+    public void LogoutBtnActionPerformed(ActionListener listener) {
+        LogoutBtn.addActionListener(listener);
+    }
 }
