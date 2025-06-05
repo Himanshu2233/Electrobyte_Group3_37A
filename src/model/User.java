@@ -9,21 +9,29 @@ package model;
  * @author sahki
  */
 public class User {
-    private int id;
+    private int id; // This should map to user_id
     private String username;
     private String email;
     private String password;
+    private String security_question;
     private String security_ans;
     
-    public User(String username, String email,String password,String security_ans){
+    public User(String username, String email,String password,String security_question,String security_ans){
         this.username = username;
         this.email = email;
         this.password = password;
+        this.security_question = security_question;
         this.security_ans = security_ans;
     }
     public User(String username, String password){
         this.username = username;
         this.password = password;
+    }
+    public User(int id, String username, String password, String email) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
     }
 
     public void setUsername(String username) {
@@ -42,6 +50,12 @@ public class User {
     public String getPassword() {
         return password;
     }
+    public String getSecurity_question() {
+        return security_question;
+    }
+    public void setSecurity_question(String security_question) {
+        this.security_question = security_question;
+    }
     public String getSecurity_ans() {
         return security_ans;
     }
@@ -52,6 +66,9 @@ public class User {
     
     public static void main(String[] args) {
         
+    }
+    public int getId() {
+        return id;
     }
     
 }

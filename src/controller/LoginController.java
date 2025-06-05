@@ -20,19 +20,15 @@ public class LoginController {
     private final Login login;
     private final AdminDashboard admindashboard = new AdminDashboard();
     private final HomePage homepage = new HomePage();
-    private final UserTable usertable = new UserTable();
+    // private final UserTable usertable = new UserTable();
     
 
     public LoginController(Login login) {
         this.login = login;
         login.addLoginListener(new LoginListener());
-        login.getBackBtn().addActionListener(e -> backBtn());
     }
     public void open() {
         login.setVisible(true);
-        login.setTitle("LoginScreen");
-        login.setLocationRelativeTo(null);
-        login.setResizable(false);
     }
 
     public void close() {
@@ -56,43 +52,26 @@ public class LoginController {
 
                 
                 if (username.equals("admin") && password.equals("root")) {
+                    admindashboard.setLocationRelativeTo(null);
                     admindashboard.setVisible(true);
-                    admindashboard.addLogoutListener(evt -> {
-                        admindashboard.dispose();
-                        login.setVisible(true);
-                    });
                     login.dispose();
                 }
-                else if (!isExist) {
-                    JOptionPane.showMessageDialog(login, "Invalid email or password.");
-                } else {
+                else if (loginDao.userlogin(user)) {
+                    User fullUser = loginDao.getUserByUsername(user.getUsername());
+                    if (fullUser != null) {
+                        model.Session.currentUserId = fullUser.getId(); // This is now user_id
+                    }
                     JOptionPane.showMessageDialog(login, "Login successful! Welcome, " + user.getUsername());
-                    // Proceed to dashboard or next screen here
-                    homepage.setVisible(isExist);
+                    homepage.setLocationRelativeTo(null);
+                    homepage.setVisible(true);
                     login.dispose();
-//                    LoginController loginController = new LoginController(login);
-//                    loginController.open();
-                    
+                } else {
+                    JOptionPane.showMessageDialog(login, "Invalid username or password");
                 }
             } catch (RuntimeException ex) {
                 JOptionPane.showMessageDialog(login, "Error: " + ex.getMessage());
             }
         }
     }
-    class LogoutBtnActionPerformed implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            admindashboard.dispose();
-            login.setVisible(true);
-            LoginController loginController = new LoginController(login);
-            loginController.open();
-        }
-    }
-    public void backBtn(){
-        close();
-        Welcome welcome  = new Welcome();
-        WelcomeController controller = new WelcomeController(welcome);
-        controller.OpenScreen();
-        
-    }
+   
 }

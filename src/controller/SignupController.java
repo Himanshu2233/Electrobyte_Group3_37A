@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 // import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.User;
-import view.Welcome;
 
 
 /**s
@@ -26,13 +25,9 @@ public class SignupController {
     public SignupController(Signup userView) {
         this.userView = userView;
         userView.addAddUserListener(new AddUserListener());
-        userView.getBackBtn().addActionListener(e -> backBtn());
     }
     public void open() {
         userView.setVisible(true);
-        userView.setLocationRelativeTo(null);
-        userView.setResizable(false);
-        userView.setTitle("SignupScreen");
     }
 
     public void close() {
@@ -46,42 +41,33 @@ public class SignupController {
                 String name = userView.getUsernameField().getText();
                 String email = userView.getEmailField().getText();
                 String password = new String(userView.getPasswordField().getPassword());
+                String security_question = (String) userView.getSecurityQuestion().getSelectedItem();
                 String security_ans = userView.getSecurity_AnsField().getText();
-//                String securityquestion = userView.getSecurityQuestion().getText();
-                if (name.isEmpty() || email.isEmpty() || password.isEmpty() || security_ans.isEmpty()) {
-            JOptionPane.showMessageDialog(userView, "All fields are required!", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
 
-        // Check if passwords match
-        if(!validation.isValidEmail(email)){
-            JOptionPane.showMessageDialog(userView, "Input valid email");
-        }else if(!validation.isValidusername(name)){
-            JOptionPane.showMessageDialog(userView, "Input valid username");
-        }else if(!validation.isValidPassword(password)){
-            JOptionPane.showMessageDialog(userView, "Input valid Password");
-        }else{
-                User user = new User(name, email, password, security_ans);
-                boolean check = userDao.checkUser(user);
-                if (check) {
-                    JOptionPane.showMessageDialog(userView, "User already exists");
-
-                }else {
-                    userDao.signUp(user);
-                    JOptionPane.showMessageDialog(userView, "Signup successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-//                    System.out.println(userView.getSecurityQuestion().);
-                    System.out.println();
+                if (name.isEmpty() || email.isEmpty() || password.isEmpty() || security_question.isEmpty() || security_ans.isEmpty()) {
+                    JOptionPane.showMessageDialog(userView, "All fields are required!", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
-        }
-        }catch (Exception ex) {
-            JOptionPane.showMessageDialog(userView, "Error: " + ex.getMessage());
+
+                if(!validation.isValidEmail(email)){
+                    JOptionPane.showMessageDialog(userView, "Input valid email");
+                }else if(!validation.isValidusername(name)){
+                    JOptionPane.showMessageDialog(userView, "Input valid username");
+                }else if(!validation.isValidPassword(password)){
+                    JOptionPane.showMessageDialog(userView, "Input valid Password");
+                }else{
+                    User user = new User(name, email, password, security_question, security_ans);
+                    boolean check = userDao.checkUser(user);
+                    if (check) {
+                        JOptionPane.showMessageDialog(userView, "User already exists");
+                    }else {
+                        userDao.signUp(user);
+                        JOptionPane.showMessageDialog(userView, "Signup successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
+            }catch (Exception ex) {
+                JOptionPane.showMessageDialog(userView, "Error: " + ex.getMessage());
             }
         } 
-    }
-    public void backBtn(){
-        close();
-        Welcome welcome  = new Welcome();
-        WelcomeController controller = new WelcomeController(welcome);
-        controller.OpenScreen();
     }
 }
