@@ -20,7 +20,7 @@ public class LoginController {
     private final Login login;
     private final AdminDashboard admindashboard = new AdminDashboard();
     private final HomePage homepage = new HomePage();
-    // private final UserTable usertable = new UserTable();
+    private final UserTable usertable = new UserTable();
     
 
     public LoginController(Login login) {
