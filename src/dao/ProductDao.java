@@ -27,6 +27,8 @@ public class ProductDao {
         }
     }
 
+    
+
     public List<Product> getAllProducts() {
         List<Product> products = new ArrayList<>();
         String sql = "SELECT * FROM products";
@@ -60,6 +62,8 @@ public class ProductDao {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+
+
     }
     public boolean updateProduct(Product product) {
     String sql = "UPDATE products SET name=?, description=?, price=?, category=?, image_url=?, stock=? WHERE id=?";
@@ -77,6 +81,8 @@ public class ProductDao {
         ex.printStackTrace();
         return false;
     }
+
+
 }
     public List<Object[]> getLowStockProducts(int threshold) {
         List<Object[]> data = new ArrayList<>();
