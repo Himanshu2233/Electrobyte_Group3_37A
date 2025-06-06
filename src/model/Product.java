@@ -8,8 +8,8 @@ public class Product {
     private String category;
     private String imageUrl;
     private int stock;
+    private int quantity = 1; // Add this field
 
-    public Product() {}
 
     public Product(int productId, String name, String description, double price, String category, String imageUrl, int stock) {
         this.productId = productId;
@@ -72,5 +72,17 @@ public class Product {
     }
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getProductId() {
+        return productId;
     }
 }
