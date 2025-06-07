@@ -44,6 +44,18 @@ public class HomePage extends javax.swing.JFrame {
 
     public void loadProducts() {
         ProductDao dao = new ProductDao();
+        List<Product> products = dao.getAllProducts();
+
+        jPanel4.removeAll();
+
+        for (Product p : products) {
+            if (p != null) {
+                ProductCard card = new ProductCard(p);
+                card.setProduct(p);
+                card.setPreferredSize(new Dimension(180, 200));
+                jPanel4.add(card);
+            }
+        }
 
         jPanel4.revalidate();
         jPanel4.repaint();
