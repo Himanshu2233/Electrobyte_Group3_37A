@@ -324,7 +324,22 @@ public class Cart extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_HomePageActionPerformed
 
-    
+    public void loadCartItems() {
+        int userId = model.Session.currentUserId;
+        jPanel3.removeAll();
+        double total = 0;
+        for (model.Product p : model.CartManager.getCartItems(userId)) {
+            CartCard card = new CartCard(p);
+            jPanel3.add(card);
+            total += p.getPrice() * p.getQuantity();
+        }
+        jPanel3.revalidate();
+        jPanel3.repaint();
+
+        // Format the total price
+        DecimalFormat df = new DecimalFormat("#,##0.00");
+        jLabel8.setText(df.format(total)); // Update total label with formatted price
+    }
     /**
      * @param args the command line arguments
      */
