@@ -1,27 +1,3 @@
-# NetBeans user-specific configuration
-nbproject/private/
-out/*
-
-# Build and distribution folders
-build/
-dist/
-
-# Class files
-*.class
-
-# NetBeans cache and action files
-nbactions.xml
-nb-configuration.xml
-
-# System files
-.DS_Store
-Thumbs.db
-
-# Backup/swap files
-*~
-*.bak
-*.swp
-
-.idea/
-
-Electrobyte.iml
+/build/
+/dist/
+/nbproject/private/
