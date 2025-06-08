@@ -339,68 +339,7 @@ public class CheckoutForm extends javax.swing.JFrame {
     }//GEN-LAST:event_OrderBtnActionPerformed
 
     // --- Validation Method ---
-    private boolean validateCheckoutForm() {
-        String firstName = FirstName.getText().trim();
-        String lastName = LastName.getText().trim();
-        String phone = PhoneNumber.getText().trim();
-        String email = Email.getText().trim();
-        String province = (String) Province.getSelectedItem();
-        String city = (String) City.getSelectedItem();
-        String postalCode = PostalCode.getText().trim();
-        String streetAddress = StreetAddress.getText().trim();
-        String tole = Tole.getText().trim();
-
-        // Regex patterns
-        String phoneRegex = "^(98|97)[0-9]{8}$"; // Nepal mobile numbers
-        String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-
-        if (firstName.isEmpty() || firstName.equals("First Name")) {
-            JOptionPane.showMessageDialog(this, "First Name is required.");
-            return false;
-        }
-        if (lastName.isEmpty() || lastName.equals("LastName")) {
-            JOptionPane.showMessageDialog(this, "Last Name is required.");
-            return false;
-        }
-        if (phone.isEmpty() || phone.equals("PhoneNumber")) {
-            JOptionPane.showMessageDialog(this, "Phone Number is required.");
-            return false;
-        }
-        if (!phone.matches(phoneRegex)) {
-            JOptionPane.showMessageDialog(this, "Enter a valid phone number (Nepal format, e.g. 98XXXXXXXX).");
-            return false;
-        }
-        if (email.isEmpty() || email.equals("Email")) {
-            JOptionPane.showMessageDialog(this, "Email is required.");
-            return false;
-        }
-        if (!email.matches(emailRegex)) {
-            JOptionPane.showMessageDialog(this, "Enter a valid email address.");
-            return false;
-        }
-        if (province == null || province.equals("Province")) {
-            JOptionPane.showMessageDialog(this, "Please select a province.");
-            return false;
-        }
-        if (city == null || city.equals("City")) {
-            JOptionPane.showMessageDialog(this, "Please select a city.");
-            return false;
-        }
-        if (postalCode.isEmpty() || postalCode.equals("Postal Code")) {
-            JOptionPane.showMessageDialog(this, "Postal Code is required.");
-            return false;
-        }
-        if (streetAddress.isEmpty() || streetAddress.equals("Street Address")) {
-            JOptionPane.showMessageDialog(this, "Street Address is required.");
-            return false;
-        }
-        if (tole.isEmpty() || tole.equals("Tole/House No.")) {
-            JOptionPane.showMessageDialog(this, "Tole/House No. is required.");
-            return false;
-        }
-        return true;
-    }
-
+    
     private void ToleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ToleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ToleActionPerformed
