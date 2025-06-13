@@ -5,6 +5,9 @@
 package electrobyte;
 import view.*;
 import controller.SignupController;
+import controller.ProductController;
+import static java.awt.AWTEventMulticaster.add;
+
 
 
 /**
@@ -23,7 +26,15 @@ public class Electrobyte {
         // signupController.open();
         // signup.setVisible(true);
           Welcome welcome = new Welcome();
-            welcome.setVisible(true);
+          welcome.setVisible(true);
+//        AddProduct add = new AddProduct();
+//        add.setVisible(true);
+//        ItemsPage Item = new ItemsPage();
+//        Item.setVisible(true);
+        
+//        ProductController product = new ProductController(add);
+//        product.open();
+        
     }
     
 }

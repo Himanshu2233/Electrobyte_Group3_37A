@@ -51,9 +51,12 @@ public class LoginController {
                 boolean isExist = loginDao.userlogin(user);
 
                 
-                if (username.equals("admin") && password.equals("root")){
+                if (username.equals("admin") && password.equals("root")) {
                     admindashboard.setVisible(true);
-                    admindashboard.LogoutBtnActionPerformed(new LogoutBtnActionPerformed());
+                    admindashboard.addLogoutListener(evt -> {
+                        admindashboard.dispose();
+                        login.setVisible(true);
+                    });
                     login.dispose();
                 }
                 else if (!isExist) {
@@ -81,13 +84,4 @@ public class LoginController {
             loginController.open();
         }
     }
-//    class LogoutBtn2ActionPerformed implements ActionListener {
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            usertable.dispose();
-//            login.setVisible(true);
-//            LoginController loginController = new LoginController(login);
-//            loginController.open();
-//        }
-//    }
 }
