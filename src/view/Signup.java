@@ -52,6 +52,7 @@ public class Signup extends javax.swing.JFrame {
         Security_question = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         S_SecurityAnswer = new javax.swing.JTextField();
+        showPassword = new javax.swing.JCheckBox();
 
         jLabel1.setText("jLabel1");
 
@@ -132,6 +133,13 @@ public class Signup extends javax.swing.JFrame {
             }
         });
 
+        showPassword.setText("Show Password");
+        showPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showPasswordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -154,7 +162,10 @@ public class Signup extends javax.swing.JFrame {
                             .addComponent(S_username, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                             .addComponent(S_email, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(showPassword))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -195,7 +206,9 @@ public class Signup extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(S_email, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(showPassword))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(S_passwordF1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -253,20 +266,6 @@ public class Signup extends javax.swing.JFrame {
     }//GEN-LAST:event_S_emailActionPerformed
 
     private void S_SignupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_SignupBtnActionPerformed
-        // Retrieve user input
-//        String username = S_username.getText().trim();
-//        String email = S_email.getText().trim();
-//        String password = new String(S_passwordF1.getPassword());
-//        String confirmPassword = new String(S_passwordF2.getPassword());
-
-        // Validate input fields
-        
-
-        // Create a new user object
-//        User newUser = new User(username, email, password);
-
-        // Call a method to save the user (this would typically involve calling a DAO or service class)
-//        boolean isUserCreated = userDao.checkUser(newUser);
 
         
     }//GEN-LAST:event_S_SignupBtnActionPerformed
@@ -287,6 +286,17 @@ public class Signup extends javax.swing.JFrame {
     private void Security_questionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Security_questionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Security_questionActionPerformed
+
+    private void showPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showPasswordActionPerformed
+        // TODO add your handling code here:
+        showPassword.addActionListener(e -> {
+            if(showPassword.isSelected()){
+                S_passwordF1.setEchoChar((char)0);
+            }else{
+                S_passwordF1.setEchoChar('*');
+            }
+        });
+    }//GEN-LAST:event_showPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,6 +354,7 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JCheckBox showPassword;
     // End of variables declaration//GEN-END:variables
 
     public void addAddUserListener(ActionListener listener) {

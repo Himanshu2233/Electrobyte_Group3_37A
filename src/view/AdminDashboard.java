@@ -3,8 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
-import controller.UserTableController;
+import dao.UserTableDao;
+import model.User;
+import view.Login;
+import view.UserTable;
+import view.ItemsPage;
+import view.AddProduct;
+import controller.*;
 import java.awt.event.ActionListener;
 
 /**
@@ -19,6 +24,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     public AdminDashboard() {
         initComponents();
     }
+    Login login = new Login();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -95,6 +101,11 @@ public class AdminDashboard extends javax.swing.JFrame {
         productsBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         productsBTN.setText("Products");
         productsBTN.setBorder(null);
+        productsBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productsBTNActionPerformed(evt);
+            }
+        });
 
         reviewBTN.setBackground(new java.awt.Color(153, 153, 153));
         reviewBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -303,12 +314,19 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutBtnActionPerformed
 
     private void usersBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersBTNActionPerformed
-        // TODO add your handling code here:
+
         UserTable userTable = new UserTable();
-        UserTableController controller = new UserTableController(userTable);
+        UserTableController controller = new UserTableController(userTable, login);
         controller.loadUsers();
-        userTable.setVisible(true);
+        controller.showUserTable();
     }//GEN-LAST:event_usersBTNActionPerformed
+
+    private void productsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productsBTNActionPerformed
+        // TODO add your handling code here:
+    ItemsPage itemsPage = new ItemsPage();
+    ProductController.attachAddProductToItemsPage(itemsPage);
+    itemsPage.setVisible(true);
+    }//GEN-LAST:event_productsBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -335,7 +353,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -368,7 +385,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JButton usersBTN;
     // End of variables declaration//GEN-END:variables
 
-    public void LogoutBtnActionPerformed(ActionListener listener) {
+    public void addLogoutListener(java.awt.event.ActionListener listener) {
         LogoutBtn.addActionListener(listener);
     }
 }
