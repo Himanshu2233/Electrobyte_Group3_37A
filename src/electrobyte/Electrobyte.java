@@ -4,11 +4,7 @@
  */
 package electrobyte;
 import view.*;
-import controller.SignupController;
-import controller.ProductController;
-import static java.awt.AWTEventMulticaster.add;
-
-
+import controller.WelcomeController;
 
 /**
  *
@@ -21,20 +17,9 @@ public class Electrobyte {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        // Signup signup = new Signup();
-        // SignupController signupController = new SignupController(signup);
-        // signupController.open();
-        // signup.setVisible(true);
-          Welcome welcome = new Welcome();
-          welcome.setVisible(true);
-//        AddProduct add = new AddProduct();
-//        add.setVisible(true);
-//        ItemsPage Item = new ItemsPage();
-//        Item.setVisible(true);
-        
-//        ProductController product = new ProductController(add);
-//        product.open();
-        
+        Welcome welcome  = new Welcome();
+        WelcomeController controller = new WelcomeController(welcome);
+        controller.OpenScreen();
     }
     
 }

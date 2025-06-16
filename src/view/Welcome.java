@@ -6,6 +6,7 @@ package view;
 import view.*;
 import controller.*;
 import dao.*;
+import javax.swing.JButton;
 import model.*;
 
 /**
@@ -48,11 +49,6 @@ public class Welcome extends javax.swing.JFrame {
         GetStartedBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         GetStartedBtn.setForeground(new java.awt.Color(255, 255, 255));
         GetStartedBtn.setText("GET STARTED");
-        GetStartedBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GetStartedBtnActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("ONE STOP SOLUTION FOR ALL ELECTRONICS");
@@ -100,17 +96,9 @@ public class Welcome extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void GetStartedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GetStartedBtnActionPerformed
-        // TODO add your handling code here:
-        Login login = new Login();
-        login.setVisible(true);
-        LoginController loginController = new LoginController(login);
-        loginController.open();
-        
-        this.dispose();
-    }//GEN-LAST:event_GetStartedBtnActionPerformed
-
+    public JButton GetStartedBtn(){
+        return GetStartedBtn;
+    }
     /**
      * @param args the command line arguments
      */
