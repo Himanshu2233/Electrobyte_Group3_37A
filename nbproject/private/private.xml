@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/Code%20Playground/Net%20Beans/Electrobyte/src/view/Login.java</file>
+            <file>file:/D:/Code%20Playground/Net%20Beans/Electrobyte/src/view/Signup.java</file>
+            <file>file:/D:/Code%20Playground/Net%20Beans/Electrobyte/src/controller/LoginController.java</file>
+            <file>file:/D:/Code%20Playground/Net%20Beans/Electrobyte/src/controller/SignupController.java</file>
+            <file>file:/D:/Code%20Playground/Net%20Beans/Electrobyte/src/view/ForgotPassword.java</file>
+            <file>file:/D:/Code%20Playground/Net%20Beans/Electrobyte/src/view/Cart.java</file>
+            <file>file:/D:/Code%20Playground/Net%20Beans/Electrobyte/src/view/EditProduct.java</file>
+        </group>
     </open-files>
 </project-private>

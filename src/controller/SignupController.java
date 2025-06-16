@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 // import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.User;
+import view.Welcome;
 
 
 /**s
@@ -25,9 +26,13 @@ public class SignupController {
     public SignupController(Signup userView) {
         this.userView = userView;
         userView.addAddUserListener(new AddUserListener());
+        userView.getBackBtn().addActionListener(e -> backBtn());
     }
     public void open() {
         userView.setVisible(true);
+        userView.setLocationRelativeTo(null);
+        userView.setResizable(false);
+        userView.setTitle("SignupScreen");
     }
 
     public void close() {
@@ -72,5 +77,11 @@ public class SignupController {
             JOptionPane.showMessageDialog(userView, "Error: " + ex.getMessage());
             }
         } 
+    }
+    public void backBtn(){
+        close();
+        Welcome welcome  = new Welcome();
+        WelcomeController controller = new WelcomeController(welcome);
+        controller.OpenScreen();
     }
 }

@@ -26,9 +26,13 @@ public class LoginController {
     public LoginController(Login login) {
         this.login = login;
         login.addLoginListener(new LoginListener());
+        login.getBackBtn().addActionListener(e -> backBtn());
     }
     public void open() {
         login.setVisible(true);
+        login.setTitle("LoginScreen");
+        login.setLocationRelativeTo(null);
+        login.setResizable(false);
     }
 
     public void close() {
@@ -83,5 +87,12 @@ public class LoginController {
             LoginController loginController = new LoginController(login);
             loginController.open();
         }
+    }
+    public void backBtn(){
+        close();
+        Welcome welcome  = new Welcome();
+        WelcomeController controller = new WelcomeController(welcome);
+        controller.OpenScreen();
+        
     }
 }
