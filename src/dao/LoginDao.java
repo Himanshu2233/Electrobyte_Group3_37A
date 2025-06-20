@@ -49,4 +49,28 @@ public class LoginDao {
         }
         return false;
     }
+
+    public User getUserByUsername(String username) {
+        Connection conn = mysql.openConnection();
+        String sql = "SELECT * FROM users WHERE username = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, username);
+            ResultSet result = pstmt.executeQuery();
+            if (result.next()) {
+                User user = new User(
+                    result.getInt("user_id"), // Use user_id, not id
+                    result.getString("username"),
+                    result.getString("password"),
+                    result.getString("email")
+                    // add other fields as needed
+                );
+                return user;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return null;
+    }
 }

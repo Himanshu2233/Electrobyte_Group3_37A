@@ -37,34 +37,36 @@ public class Forgot {
         }
         return false;
     }
-    public boolean updatePasswordWithSecurityAnswer(String username, String email, String security_ans, String newPassword) {
-        Connection conn = mysql.openConnection();
-        String validateSql = "SELECT security_ans FROM users WHERE username = ? AND email = ?";
-        try (PreparedStatement validateStmt = conn.prepareStatement(validateSql)) {
-            validateStmt.setString(1, username);
-            validateStmt.setString(2, email);
-            ResultSet result = validateStmt.executeQuery();
-            if (result.next()) {
-                String storedAnswer = result.getString("security_ans");
-                if (storedAnswer.equals(security_ans)) {
-                    // Security answer matches, proceed to update password
-                    String updateSql = "UPDATE users SET password = ? WHERE username = ?";
-                    try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
-                        updateStmt.setString(1, newPassword);
-                        updateStmt.setString(2, username);
-                        int rowsUpdated = updateStmt.executeUpdate();
-                        return rowsUpdated > 0; // Return true if password was updated
-                    }
-                } else {
-                    return false; // Security answer does not match
-                }
+    public boolean updatePasswordWithSecurityAnswer(String username, String email, String securityQuestion, String securityAnswer, String newPassword) {
+        String sql = "UPDATE users SET password = ? WHERE username = ? AND email = ? AND security_question = ? AND security_ans = ?";
+        try (Connection conn = mysql.openConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, newPassword);
+            stmt.setString(2, username);
+            stmt.setString(3, email);
+            stmt.setString(4, securityQuestion);
+            stmt.setString(5, securityAnswer);
+            int updated = stmt.executeUpdate();
+            return updated > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    public String getSecurityQuestion(String username, String email) {
+        String sql = "SELECT security_question FROM users WHERE username = ? AND email = ?";
+        try (Connection conn = mysql.openConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, username);
+            stmt.setString(2, email);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getString("security_question");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
-            return false; // Return false if an exception occurs
-        } finally {
-            mysql.closeConnection(conn);
+            ex.printStackTrace();
         }
-        return false; // Return false if user not found or other issues
+        return null;
     }
 }

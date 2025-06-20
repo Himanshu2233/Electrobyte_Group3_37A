@@ -13,6 +13,8 @@ public class Mysql implements Database {
     public Connection openConnection() {
         try {
         String username = "root";
+//        String password = "sphinxx@!123";
+//        String password = "sandhya64@@2005";
         String password = "#pq2c2urll";
         String database = "electro";
         Connection connection;

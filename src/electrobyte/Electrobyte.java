@@ -4,11 +4,12 @@
  */
 package electrobyte;
 import view.*;
-import controller.WelcomeController;
+
+
 
 /**
  *
- * @author sahki
+ * @author Sandhya
  */
 public class Electrobyte {
 
@@ -16,10 +17,8 @@ public class Electrobyte {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Welcome welcome  = new Welcome();
-        WelcomeController controller = new WelcomeController(welcome);
-        controller.OpenScreen();
+          Welcome welcome = new Welcome();
+          welcome.setLocationRelativeTo(null);
+          welcome.setVisible(true);
     }
-    
 }
